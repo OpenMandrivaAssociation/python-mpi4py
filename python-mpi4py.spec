@@ -1,6 +1,6 @@
 %define module 	mpi4py
 %define name 	python-%{module}
-%define version 0.4.0rc2
+%define version 0.4.0rc4
 %define release %mkrel 1
 
 Summary: 	MPI for Python
@@ -13,8 +13,8 @@ Group: 		Development/Python
 Url: 		http://mpi4py.scipy.org
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	python >= 2.3
-Requires:	mpich2
-BuildRequires:	mpich2-devel, python-devel >= 2.3
+Requires:	openmpi
+BuildRequires:	openmpi-devel, python-devel >= 2.3
 
 %description
 
@@ -40,5 +40,3 @@ how to use a new interface.
 %files -f INSTALLED_FILES
 %defattr(-,root,root)
 %doc docs/*.txt tests/ README.txt LICENSE.txt
-
-
