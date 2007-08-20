@@ -1,6 +1,6 @@
 %define module 	mpi4py
 %define name 	python-%{module}
-%define version 0.4.0rc4
+%define version 0.5.0
 %define release %mkrel 1
 
 Summary: 	MPI for Python
