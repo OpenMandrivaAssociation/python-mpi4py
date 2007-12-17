@@ -11,7 +11,6 @@ Source0: 	%{module}-%{version}.tar.bz2
 License: 	Public Domain
 Group: 		Development/Python
 Url: 		http://mpi4py.scipy.org
-BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	python >= 2.3
 Requires:	openmpi
 BuildRequires:	openmpi-devel, python-devel >= 2.3
