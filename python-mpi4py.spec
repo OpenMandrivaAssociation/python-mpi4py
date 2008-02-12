@@ -17,7 +17,6 @@ Requires:	openmpi
 BuildRequires:	openmpi-devel, python-devel >= 2.3
 
 %description
-
 MPI for Python provides an object oriented approach to message passing
 in Python. Care was taken to translate the syntax and semantics of the
 standard MPI-2 bindings for C++ to Python. Any user of the standard
