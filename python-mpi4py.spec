@@ -1,7 +1,7 @@
 %define module 	mpi4py
 %define name 	python-%{module}
 %define version 0.5.0
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: 	MPI for Python
 Name: 		%{name}
@@ -31,11 +31,11 @@ how to use a new interface.
 
 %install
 %__rm -rf %{buildroot}
-%__python setup.py install --root=%{buildroot} --record=INSTALLED_FILES
+%__python setup.py install --root=%{buildroot} --record=FILELIST
 
 %clean
 %__rm -rf %{buildroot}
 
-%files -f INSTALLED_FILES
+%files -f FILELIST
 %defattr(-,root,root)
 %doc docs/*.txt tests/ README.txt LICENSE.txt
