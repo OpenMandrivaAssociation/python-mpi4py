@@ -1,13 +1,13 @@
 %define module 	mpi4py
 %define name 	python-%{module}
-%define version 0.5.0
-%define release %mkrel 2
+%define version 0.6.0
+%define release %mkrel 1
 
 Summary: 	MPI for Python
 Name: 		%{name}
 Version: 	%{version}
 Release: 	%{release}
-Source0: 	%{module}-%{version}.tar.bz2
+Source0: 	%{module}-%{version}.tar.lzma
 License: 	Public Domain
 Group: 		Development/Python
 Url: 		http://mpi4py.scipy.org
@@ -15,7 +15,7 @@ BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	python >= 2.3
 Requires:	openmpi
 BuildRequires:	openmpi-devel, python-devel >= 2.3
-
+BuildRequires:	tetex-latex, python-docutils >= 0.4, python-sphinx
 %description
 MPI for Python provides an object oriented approach to message passing
 in Python. Care was taken to translate the syntax and semantics of the
@@ -28,6 +28,8 @@ how to use a new interface.
 
 %build
 %__python setup.py build
+make -C docs latex
+make -C docs/build/latex all-pdf
 
 %install
 %__rm -rf %{buildroot}
@@ -38,4 +40,4 @@ how to use a new interface.
 
 %files -f FILELIST
 %defattr(-,root,root)
-%doc docs/*.txt tests/ README.txt LICENSE.txt
+%doc tests/ README.txt LICENSE.txt HISTORY.txt THANKS.txt docs/build/latex/MPIForPython.pdf
