@@ -28,7 +28,7 @@ how to use a new interface.
 
 %build
 %__python setup.py build
-make -C docs latex
+make PAPER=letter -C docs latex
 make -C docs/build/latex all-pdf
 
 %install
