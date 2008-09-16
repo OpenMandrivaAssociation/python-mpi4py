@@ -1,7 +1,7 @@
 %define module 	mpi4py
 %define name 	python-%{module}
 %define version 0.6.0
-%define release %mkrel 3
+%define release %mkrel 4
 
 Summary: 	MPI for Python
 Name: 		%{name}
@@ -14,7 +14,7 @@ Url: 		http://mpi4py.scipy.org
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	python >= 2.3
 Requires:	openmpi
-BuildRequires:	openmpi-devel, python-devel >= 2.3
+BuildRequires:	openmpi, openmpi-devel, python-devel >= 2.3
 BuildRequires:	tetex-latex, python-docutils >= 0.4, python-sphinx
 %description
 MPI for Python provides an object oriented approach to message passing
