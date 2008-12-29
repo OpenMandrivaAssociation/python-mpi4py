@@ -8,6 +8,7 @@ Name: 		%{name}
 Version: 	%{version}
 Release: 	%{release}
 Source0: 	%{module}-%{version}.tar.lzma
+Patch0:		mpi4py-0.6.0-fix-str-fmt.patch
 License: 	Public Domain
 Group: 		Development/Python
 Url: 		http://mpi4py.scipy.org
@@ -26,6 +27,7 @@ how to use a new interface.
 
 %prep
 %setup -q -n %{module}-%{version}
+%patch0 -p0
 
 %build
 %__python setup.py build
