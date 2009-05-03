@@ -44,6 +44,7 @@ name publishing).
 %setup -q -n %{module}-%{version}
 
 %build
+export CFLAGS="-Wno-error=format-security" 
 %__python setup.py build
 pushd docs/source
 make PAPER=letter latex
