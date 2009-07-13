@@ -1,6 +1,6 @@
 %define module 	mpi4py
 %define name 	python-%{module}
-%define version 1.0.0
+%define version 1.1.0
 %define release %mkrel 1
 
 Summary: 	MPI for Python
@@ -60,4 +60,4 @@ popd
 
 %files -f FILELIST
 %defattr(-,root,root)
-%doc test/ demo/ *.txt docs/source/build/latex/mpi4py-man.pdf
+%doc test/ demo/ *.txt docs/source/build/latex/mpi4py.pdf
