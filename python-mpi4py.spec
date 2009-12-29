@@ -1,7 +1,7 @@
 %define module 	mpi4py
 %define name 	python-%{module}
-%define version 1.1.0
-%define release %mkrel 2
+%define version 1.2
+%define release %mkrel 1
 
 Summary: 	MPI for Python
 Name: 		%{name}
@@ -15,30 +15,29 @@ BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 %py_requires -d
 Requires:	openmpi
 BuildRequires:	python-cython, openmpi, openmpi-devel
-BuildRequires:	tetex-latex, python-docutils >= 0.4, python-sphinx
+BuildRequires:	python-docutils >= 0.4, python-sphinx, epydoc
 
 %description
-This package provides MPI support for Python scripting in parallel
-environments. It is constructed on top of the MPI-1/MPI-2
-specification, but provides an object oriented interface which closely
-follows the MPI-2 C++ bindings.
+MPI for Python provides bindings of the Message Passing Interface
+(MPI) standard for the Python programming language, allowing any
+Python program to exploit multiple processors.
 
-This module supports point-to-point (send, receive) and collective
-(broadcast, scatter, gather, reduction) communications of any
-picklable Python object.
+This package is constructed on top of the MPI-1/2 specifications and
+provides an object oriented interface which closely follows MPI-2 C++
+bindings. It supports point-to-point (sends, receives) and collective
+(broadcasts, scatters, gathers) communications of any picklable Python
+object, as well as optimized communications of Python object exposing
+the single-segment buffer interface (NumPy arrays, builtin
+bytes/string/array objects).
 
-For objects exporting single-segment buffer interface (strings, NumPy
-arrays, etc.), blocking/nonblocking/persistent point-to-point,
-collective and one-sided (put, get, accumulate) communications are
-fully supported, as well as parallel I/O (blocking and nonblocking,
-collective and noncollective read and write operations using explicit
-file offsets, individual file pointers and shared file pointers).
+%package devel
+Summary:	mpi4py headers
+Group:		Development/Python
+Requires:	%{name} = %{version}-%{release}
 
-There is also full support for group and communicator (inter, intra,
-Cartesian and graph topologies) creation and management, as well as
-creating user-defined datatypes. Additionally, there is almost
-complete support for dynamic process creation and management (spawn,
-name publishing).
+%description devel 
+This package contains header files needed to develop modules in C or
+Fortran that can interact with mpi4py.
 
 %prep
 %setup -q -n %{module}-%{version}
@@ -46,18 +45,23 @@ name publishing).
 %build
 export CFLAGS="-Wno-error=format-security" 
 %__python setup.py build
-pushd docs/source
-make PAPER=letter latex
-make -C build/latex all-pdf
-popd 
 
 %install
 %__rm -rf %{buildroot}
 %__python setup.py install --root=%{buildroot} --record=FILELIST
+PYTHONPATH=%{buildroot}%{py_platsitedir}:$PYTHONPATH %__make docs-html
 
 %clean
 %__rm -rf %{buildroot}
 
+%check
+%make test
+
 %files -f FILELIST
 %defattr(-,root,root)
-%doc test/ demo/ *.txt docs/source/build/latex/mpi4py.pdf
+%doc test/ demo/ *.txt docs/usrman docs/apiref
+%exclude %{py_platsitedir}/%{module}/include/
+
+%files devel
+%defattr(-,root,root)
+%{py_platsitedir}/%{module}/include/
