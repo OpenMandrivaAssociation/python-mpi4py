@@ -1,7 +1,7 @@
 %define module 	mpi4py
 %define name 	python-%{module}
 %define version 1.2.2
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: 	MPI for Python
 Name: 		%{name}
@@ -12,8 +12,8 @@ License: 	Public Domain
 Group: 		Development/Python
 Url: 		http://mpi4py.googlecode.com
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-%py_requires -d
 Requires:	openmpi
+BuildRequires:	python-devel
 BuildRequires:	python-cython, openmpi, openmpi-devel
 
 %description
