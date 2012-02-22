@@ -1,7 +1,12 @@
 %define module 	mpi4py
 %define name 	python-%{module}
 %define version 1.3
-%define release 1
+%define rel		2
+%if %mdkversion < 201100
+%define release %rel
+%else
+%define release %mkrel %rel
+%endif
 
 Summary: 	MPI for Python
 Name: 		%{name}
@@ -48,8 +53,8 @@ export CFLAGS="-Wno-error=format-security"
 %install
 %__rm -rf %{buildroot}
 PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} --record=FILELIST
-rm -f %{buildroot}%{py_platsitedir}/mpi4py/mpi.cfg
-sed -si 's/^.*mpi\.cfg$//' FILELIST
+%__rm -f %{buildroot}%{py_platsitedir}/mpi4py/mpi.cfg
+%__sed -si 's/^.*mpi\.cfg$//' FILELIST
 
 %clean
 %__rm -rf %{buildroot}
