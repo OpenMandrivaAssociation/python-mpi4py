@@ -1,7 +1,7 @@
 %define module 	mpi4py
 %define name 	python-%{module}
 %define version 1.3
-%define rel		2
+%define rel		3
 %if %mdkversion < 201100
 %define release %rel
 %else
@@ -19,7 +19,7 @@ Url: 		http://mpi4py.googlecode.com
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	openmpi
 BuildRequires:	python-devel
-BuildRequires:	python-cython, openmpi, openmpi-devel
+BuildRequires:	python-cython, openmpi, openmpi-devel, zlib-devel
 
 %description
 MPI for Python provides bindings of the Message Passing Interface
