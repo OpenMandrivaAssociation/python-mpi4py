@@ -1,11 +1,11 @@
 %define module 	mpi4py
 %define name 	python-%{module}
 %define version 1.3
-%define rel		3
+%define rel		4
 %if %mdkversion < 201100
-%define release %rel
-%else
 %define release %mkrel %rel
+%else
+%define release %rel
 %endif
 
 Summary: 	MPI for Python
@@ -13,7 +13,7 @@ Name: 		%{name}
 Version: 	%{version}
 Release: 	%{release}
 Source0: 	http://mpi4py.googlecode.com/files/%{module}-%{version}.tar.gz
-License: 	Public Domain
+License: 	BSD
 Group: 		Development/Python
 Url: 		http://mpi4py.googlecode.com
 BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
