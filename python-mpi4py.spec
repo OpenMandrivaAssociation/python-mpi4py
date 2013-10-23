@@ -10,13 +10,12 @@
 
 Summary: 	MPI for Python
 Name: 		%{name}
-Version: 	%{version}
-Release: 	%{release}
-Source0: 	http://mpi4py.googlecode.com/files/%{module}-%{version}.tar.gz
+Version: 	1.3.1
+Release: 	1
+Source0: 	http://mpi4py.googlecode.com/files/mpi4py-%{version}.tar.gz
 License: 	BSD
 Group: 		Development/Python
 Url: 		http://mpi4py.googlecode.com
-BuildRoot: 	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	openmpi
 BuildRequires:	python-devel
 BuildRequires:	python-cython, openmpi, openmpi-devel, zlib-devel
@@ -51,21 +50,17 @@ export CFLAGS="-Wno-error=format-security"
 %__python setup.py build
 
 %install
-%__rm -rf %{buildroot}
 PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} --record=FILELIST
 %__rm -f %{buildroot}%{py_platsitedir}/mpi4py/mpi.cfg
 %__sed -si 's/^.*mpi\.cfg$//' FILELIST
 
 %clean
-%__rm -rf %{buildroot}
 
 %files -f FILELIST
-%defattr(-,root,root)
 %doc test/ demo/ *.txt docs/usrman docs/apiref
 %exclude %{py_platsitedir}/%{module}/include/
 
 %files devel
-%defattr(-,root,root)
 %{py_platsitedir}/%{module}/include/
 
 
@@ -157,4 +152,5 @@ PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} --record
 + Revision: 76967
 - Fix build deps.
 - Add files.
+
 
