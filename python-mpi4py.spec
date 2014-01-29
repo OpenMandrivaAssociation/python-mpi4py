@@ -9,6 +9,7 @@ Group:		Development/Python
 Url:		http://mpi4py.googlecode.com
 Source0:	http://mpi4py.googlecode.com/files/%{module}-%{version}.tar.gz
 Patch0:		mpi4py-1.3.1-linkage.patch
+Patch1:		mpi4py-1.3.1-openmpi1.7.patch
 BuildRequires:	openmpi
 BuildRequires:	python-cython
 BuildRequires:	pkgconfig(ompi)
@@ -52,6 +53,7 @@ Fortran that can interact with mpi4py.
 %prep
 %setup -q -n %{module}-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 export CFLAGS="-Wno-error=format-security"
