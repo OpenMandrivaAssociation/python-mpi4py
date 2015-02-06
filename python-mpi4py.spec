@@ -3,7 +3,7 @@
 Summary:	MPI for Python
 Name:		python-%{module}
 Version:	1.3.1
-Release:	2
+Release:	3
 License:	BSD
 Group:		Development/Python
 Url:		http://mpi4py.googlecode.com
