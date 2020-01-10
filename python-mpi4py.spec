@@ -78,7 +78,7 @@ Fortran that can interact with mpi4py.
 
 %prep
 %setup -q -n %{module}-%{version}
-%apply_patches
+%autopatch -p1
 
 mkdir py2
 cp -a `ls |grep -v py2 py2/`
