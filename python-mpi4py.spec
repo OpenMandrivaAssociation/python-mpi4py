@@ -1,4 +1,5 @@
-%define module	mpi4py
+%global module	mpi4py
+%global fname %(n=%{name}; echo ${n:0:1})
 
 Summary:	MPI for Python
 Name:		python-%{module}
@@ -7,7 +8,8 @@ Release:	1
 Group:		Development/Python
 License:	Public Domain
 Url:		https://github.com/mpi4py/mpi4py
-Source0:	%{url}/archive/refs/tags/%{version}/%{module}-%{version}.tar.gz
+Source0:	https://pypi.io/packages/source/%{fname}/%{module}/%{module}-%{version}.tar.gz
+#Source0:	%{url}/archive/refs/tags/%{version}/%{module}-%{version}.tar.gz
 #Patch0:		mpi4py-1.3.1-linkage.patch
 #Patch1:		mpi4py-1.3.1-openmpi1.7.patch
 
