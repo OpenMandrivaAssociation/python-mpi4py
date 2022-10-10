@@ -17,9 +17,10 @@ BuildRequires: openmpi
 BuildRequires: pkgconfig(ompi)
 BuildRequires: pkgconfig(zlib)
 BuildRequires: pkgconfig(python3)
-BuildRequires: python3dist(pip)
 BuildRequires: python3dist(cython)
+BuildRequires: python3dist(pip)
 BuildRequires: python3dist(setuptools)
+BuildRequires: python3dist(wheel)
 # For testing
 #BuildRequires: python3dist(dill)
 BuildRequires: python3dist(numpy)
@@ -43,7 +44,7 @@ bytes/string/array objects).
 
 %files
 %{py_platsitedir}/%{module}/
-%{py_platsitedir}/%{module}-%{version}-py%{python_version}.egg-info/
+%{py_platsitedir}/%{module}-%{version}.dist-info/
 
 #----------------------------------------------------------------------------
 
