@@ -17,6 +17,7 @@ BuildRequires: openmpi
 BuildRequires: pkgconfig(ompi)
 BuildRequires: pkgconfig(zlib)
 BuildRequires: pkgconfig(python3)
+BuildRequires: python3dist(pip)
 BuildRequires: python3dist(cython)
 BuildRequires: python3dist(setuptools)
 # For testing
