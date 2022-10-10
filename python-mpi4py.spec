@@ -71,6 +71,8 @@ rm -r docs/source
 
 %build
 export PATH=%{_libdir}/openmpi/bin/:$PATH
+export CC=mpicc
+export CXX=mpicxx
 %py_build
 
 %install
