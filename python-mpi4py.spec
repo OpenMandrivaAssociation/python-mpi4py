@@ -1,15 +1,12 @@
-%global module	mpi4py
-%global fname %(n=%{name}; echo ${n:0:1})
-
 Summary:	MPI for Python
-Name:		python-%{module}
-Version:	3.1.3
+Name:		python-mpi4py
+Version:	3.1.4
 Release:	1
 Group:		Development/Python
 License:	Public Domain
 Url:		https://github.com/mpi4py/mpi4py
-Source0:	https://pypi.io/packages/source/%{fname}/%{module}/%{module}-%{version}.tar.gz
-#Source0:	%{url}/archive/refs/tags/%{version}/%{module}-%{version}.tar.gz
+Source0:	https://pypi.io/packages/source/m/mpi4py/mpi4py-%{version}.tar.gz
+#Source0:	%{url}/archive/refs/tags/%{version}/mpi4py-%{version}.tar.gz
 #Patch0:		mpi4py-1.3.1-linkage.patch
 #Patch1:		mpi4py-1.3.1-openmpi1.7.patch
 
@@ -43,8 +40,8 @@ the single-segment buffer interface (NumPy arrays, builtin
 bytes/string/array objects).
 
 %files
-%{py_platsitedir}/%{module}/
-%{py_platsitedir}/%{module}-%{version}.dist-info/
+%{py_platsitedir}/mpi4py/
+%{py_platsitedir}/mpi4py*-info/
 
 #----------------------------------------------------------------------------
 
@@ -64,7 +61,7 @@ This package contains documentation for MPI for Python.
 #----------------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n %{module}-%{version}
+%autosetup -p1 -n mpi4py-%{version}
 
 # delete docs/source
 # this is just needed to generate docs/*
@@ -72,8 +69,8 @@ rm -r docs/source
 
 %build
 export PATH=%{_libdir}/openmpi/bin/:$PATH
-export CC=mpicc
-export CXX=mpicxx
+#export CC=mpicc
+#export CXX=mpicxx
 %py_build
 
 %install
