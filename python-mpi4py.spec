@@ -1,6 +1,6 @@
 Summary:	MPI for Python
 Name:		python-mpi4py
-Version:	3.1.5
+Version:	3.1.6
 Release:	1
 Group:		Development/Python
 License:	Public Domain
