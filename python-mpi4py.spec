@@ -1,7 +1,7 @@
 Summary:	MPI for Python
 Name:		python-mpi4py
 Version:	4.0.3
-Release:	1
+Release:	2
 Group:		Development/Python
 License:	Public Domain
 Url:		https://github.com/mpi4py/mpi4py
