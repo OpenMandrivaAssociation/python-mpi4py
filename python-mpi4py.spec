@@ -1,7 +1,7 @@
 Name:		python-mpi4py
 Summary:	Python bindings for MPI
 Version:	4.1.1
-Release:	1
+Release:	2
 Group:		Development/Python
 License:	BSD-3-Clause
 Url:		https://github.com/mpi4py/mpi4py
