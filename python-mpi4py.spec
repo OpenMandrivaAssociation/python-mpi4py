@@ -1,7 +1,7 @@
 Name:		python-mpi4py
 Summary:	Python bindings for MPI
-Version:	4.1.1
-Release:	2
+Version:	4.1.2
+Release:	1
 Group:		Development/Python
 License:	BSD-3-Clause
 Url:		https://github.com/mpi4py/mpi4py
@@ -61,7 +61,7 @@ This package contains documentation for MPI for Python.
 #----------------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n mpi4py-%{version}
+%autosetup -p1 -n mpi4py-4.1.2
 
 # delete docs/source
 # this is just needed to generate docs/*
