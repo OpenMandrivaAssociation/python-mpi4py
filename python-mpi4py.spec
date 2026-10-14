@@ -1,7 +1,7 @@
 Name:		python-mpi4py
 Summary:	Python bindings for MPI
 Version:	4.1.2
-Release:	1
+Release:	2
 Group:		Development/Python
 License:	BSD-3-Clause
 Url:		https://github.com/mpi4py/mpi4py
@@ -13,7 +13,7 @@ Source0:	https://pypi.io/packages/source/m/mpi4py/mpi4py-%{version}.tar.gz#/%{na
 BuildRequires: openmpi
 BuildRequires: pkgconfig(ompi)
 BuildRequires: pkgconfig(zlib)
-BuildRequires: pkgconfig(python)
+BuildRequires: pkgconfig(python3)
 BuildRequires: python%{pyver}dist(cython)
 BuildRequires: python%{pyver}dist(pip)
 BuildRequires: python%{pyver}dist(setuptools)
